@@ -12,19 +12,19 @@
          .header{text-align: center; padding:1%; width:100%;}
          .footer{background-color:rgb(58, 68, 68); text-align: center; padding:1%; width:100%;color: rgb(233, 218, 218);}
          .text {text-align:center; padding:3%;}
-         fieldset{background-color: white; border-style: inset; border-color: tomato; width: 50%; margin:auto;}
+         fieldset{background-color: white; border-style:inline;border-radius: 10%; border-color: tomato; width: 80%;  height:500px}
         .fieldsetpasus{background-color: rgb(58, 68, 68); border-top: rgb(87, 97, 97) solid; border-left: rgb(87, 97, 97) solid;border-right: rgb(87, 97, 97) solid;border-bottom: rgb(87, 97, 97) solid; width: 50%; margin:auto;}
          .tekstanketa {text-align: justify;font-size:larger;}
         .tekstpasus{text-align: justify;font-size:larger;color: rgb(255, 255, 255);}
         .submitbutton {text-align:center;}
-        .column { float: left;  width: 100%; padding-top: 1%;color:white}
+        .column { float: left;  width: 33.3%;color:white; text-align: center;}
         .row:after { content: ""; display: table; clear: both;}
         .footertext{font-size: small;}
-        img {border-top: 20px solid rgb(58, 68, 68);border-right: 20px solid rgb(58, 68, 68);border-bottom: 20px solid rgb(58, 68, 68);border-left: 20px solid rgb(58, 68, 68);width: 90%;display:block;margin-left: auto;
-        margin-right: auto;}
+        img {width: 100%;display:block;margin:0; padding:0; border-radius: 5% 5% 0% 0%;}
      
         
         </style>      
+        <script src="blogfunkcija.js"></script>
         
      
      <body>
@@ -48,6 +48,133 @@
          
          </div>
          <br>
+        
+        <div style="background: rgb(58, 68, 68); padding-top: 3%; padding-bottom: 3%; text-align: center; margin-left: 6.8%; margin-right: 6.8%; margin-top: 3%; margin-bottom: 3%;">
+         <div class="row">
+            <h1 style="color:rgb(233, 218, 218);text-align: center;">БЛОГ</h1>
+            <hr>
+            <br>
+            
+             <div class="column">
+                <article style="margin:5%;border-radius: 5% 5% 5%;background-color: white;">
+                    <img  id="slika1" onclick="appear(this)" src="images_unsplash_com-photo-1432821596592-e2c18b78144f.jpg" alt="slika1">
+                    <div>
+                        <h1 style="color:black; text-align: justify;margin:3%">Совети за продуктивност</h1>
+                    </div>
+                <div id="text1" style="display: none;">
+                    <hr>
+                    <p style="text-align: justify;color:black; line-height: 1.5; margin:3%;font-size: large;">За сите оние кои имаат тешкотии со продуктивност, мислам дека овој <a href="https://www.businessinsider.com/productivity-tips-from-experts-busy-people-2016-12#immediately-do-any-task-that-would-only-take-one-minute-to-complete-1">линк</a> може да ви помогне каде што стручни лица ги споделуваат нивните омилени совети за овој проблем. Се надевам ќе ви помогне!</p>
+                    <div>
+                        <p id="p1" style="color:black">DATE CREATED:     USER</p>
+                    </div>
+                </div>
+                
+                
+            </article>
+             </div>
+
+             <div class="column">
+                <article style="margin:5%;border-radius: 5% 5% 5%;background-color: white;">
+                    <img  id="slika2" onclick="appear(this)" src="traveling-wanderlust-tumblr-Favi.jpg" alt="slika1">
+                    <div>
+                        <h1 style="color:black; text-align: justify;margin:3%">Патување</h1>
+                    </div>
+                <div id="text2" style="display: none;">
+                    <hr>
+                    <p style="text-align: justify;color:black; line-height: 1.5; margin:3%;font-size: large;">Ако сакате да започнете да одите на патувања, оваа <a href="https://www.nomadicmatt.com/getting-started-new/">страна</a> ќе ве насочи се што треба да правите како почетник кој го планира своето прво патување.</p>
+                    <div>
+                        <p id="p2" style="color:black">DATE CREATED:     USER</p>
+                    </div>
+                </div>
+                
+                
+            </article>
+             </div>
+
+             
+             <div class="column">
+                <article style="margin:5%;border-radius: 5% 5% 5%;background-color: white;">
+                    <img  id="slika3" onclick="appear(this)" src="vintage-cassette.png" alt="slika1">
+                    <div>
+                        <h1 style="color:black; text-align: justify;margin:3%">АМАs</h1>
+                    </div>
+                <div id="text3" style="display: none;">
+                    <hr>
+                    <p style="text-align: justify;color:black; line-height: 1.5;margin:3%;font-size: large;">За сите обожаватели на музички шоуа и музички награди, излезени се номинациите за <a href="https://www.billboard.com/amasvote">AMAs</a> и можете да гласате за вашите омилени артисти во дадените категории!</p>
+                    <br>
+                    <div>
+                        <p id="p3" style="color:black">DATE CREATED:     USER</p>
+                    </div>
+                </div>
+                
+                
+            </article>
+             </div>
+
+         </div>
+
+         <div class="row">
+            
+            
+             <div class="column" style="margin-top: -7%;">
+                <article style="margin:5%;border-radius: 5% 5% 5%;background-color: white;">
+                    <img  id="slika4" onclick="appear(this)" src="bff830a837ce4f8787e95a28c8f4f785.jpg" alt="slika1">
+                    <div>
+                        <h1 style="color:black; text-align: justify;margin:3%">Унгарски Парламент</h1>
+                    </div>
+                <div id="text4" style="display: none;">
+                    <hr>
+                    <p style="text-align: justify;color:black; line-height: 1.5 ;margin:3%;font-size: large;">Сместена на бреговите на реката Дунав, Парламентот во Будимпешта е една од прекрасните знаменитости на Унгарија. Масвната зграда е еден пример на неоготска архитектура и омилена глетка меѓу посетителите. Еве што имаше да каже еден рецензент на TripAdvisor за Парламентот: „Зградата е архитектонско чудо. Најдобриот поглед може да се има од реката, или уште подалеку на замокот на ридот. Бидете сигурни да видите навечер кога свети со светлина“.</p>
+                    <div>
+                        <p id="p4" style="color:black" >DATE CREATED:     USER</p>
+                    </div>
+                </div>
+                
+                
+            </article>
+             </div>
+
+             <div class="column">
+                <article style="margin:5%;border-radius: 5% 5% 5%;background-color: white;">
+                    <img  id="slika5" onclick="appear(this)" src="sl_digi_012119053_0-2000 (1).jpg" alt="slika1">
+                    <div>
+                        <h1 style="color:black; text-align: justify;margin:3%">Чоколаден милкшејк</h1>
+                    </div>
+                <div id="text5" style="display: none;">
+                    <hr>
+                    <p style="text-align: justify;color:black; line-height: 1.5;margin:3%;font-size: large;">Имате желба за милкшејк? Епа дојдовте на вистинскиот пост. Овој чоколаден милкшејк ќе ви го разубади денот. Се користат малку состојки и е многу лесен за правење. Потребни се само 10 минути! Без разлика каде сте, времето е секогаш добро за еден милкшејк. Рецептот можете да го најдете на следниот <a href="https://www.southernliving.com/recipes/chocolate-milkshake">линк</a>.</p>
+                    <div>
+                        <p id="p5" style="color:black">DATE CREATED:     USER</p>
+                    </div>
+                </div>
+                
+                
+            </article>
+             </div>
+
+             <div class="column" style="margin-top: -7%;">
+                <article style="margin:5%;border-radius: 5% 5% 5%;background-color: white;">
+                    <img  id="slika6" onclick="appear(this)" src="93080_3x4 (1).jpg" alt="slika1">
+                    <div>
+                        <h1 style="color:black; text-align: justify;margin:3%">Tаџ Махал</h1>
+                    </div>
+                <div id="text6" style="display: none;">
+                    <hr>
+                    <p style="text-align: justify;color:black; line-height: 1.5;margin:3%;font-size: large;">Оваа најпрепознатлива знаменитост се смета за најголем пример на индо-исламска архитектура: каменоделство околу бели минариња и елаборирана купола, додека огромниот рефлектирачки базен обезбедува соодветно величествен влез додека одите нагоре до прагот. Како што рече еден рецензент на TripAdvisor, „Сè што слушате и читате за Таџ е вистина. Сè додека не го видите во живо, не можете да ја разберете неговата величественост и историја. Животно искуство“.</p>
+                    <div>
+                        <p id="p6" style="color:black">DATE CREATED:     USER</p>
+                    </div>
+                </div>
+                
+                
+            </article>
+             </div>
+    
+         </div>
+        </div>
+        
+
+
 
             <div class="footer"><p class="footertext">© 2021<p></div>
     

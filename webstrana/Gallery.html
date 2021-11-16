@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <head>
     <meta charset="utf-8">
     <title>Галерија</title>
     <style type ="text/css">
@@ -12,20 +13,31 @@
          .header{text-align: center; padding:1%; width:100%;}
          .footer{background-color:rgb(58, 68, 68); text-align: center; padding:1%; width:100%;color: rgb(233, 218, 218);}
          .text {text-align:center; padding:3%;}
-         fieldset{background-color: white; border-style: inset; border-color: tomato; width: 50%; margin:auto;}
         .fieldsetpasus{background-color: rgb(58, 68, 68); border-top: rgb(87, 97, 97) solid; border-left: rgb(87, 97, 97) solid;border-right: rgb(87, 97, 97) solid;border-bottom: rgb(87, 97, 97) solid; width: 50%; margin:auto;}
          .tekstanketa {text-align: justify;font-size:larger;}
         .tekstpasus{text-align: justify;font-size:larger;color: rgb(255, 255, 255);}
         .submitbutton {text-align:center;}
-        .column { float: left;  width: 100%; padding-top: 1%;color:white}
+        .column { float: left;  width: 50%; padding-top: 1%;color:white}
         .row:after { content: ""; display: table; clear: both;}
         .footertext{font-size: small;}
-        img {border-top: 20px solid rgb(58, 68, 68);border-right: 20px solid rgb(58, 68, 68);border-bottom: 20px solid rgb(58, 68, 68);border-left: 20px solid rgb(58, 68, 68);width: 90%;display:block;margin-left: auto;
+        .img {border-top: 20px solid rgb(58, 68, 68);border-right: 20px solid rgb(58, 68, 68);border-bottom: 20px solid rgb(58, 68, 68);border-left: 20px solid rgb(58, 68, 68);width: 90%;display:block;margin-left: auto;
         margin-right: auto;}
+        .imggallery{padding:1%;}
+        .imggallery:hover{transform: scale(1.1);transition: 0.5s; cursor:pointer;}
+        fieldset::-webkit-scrollbar {width: 10px;}
+        fieldset::-webkit-scrollbar-track {box-shadow: inset 0 0 5px grey;}
+        fieldset::-webkit-scrollbar-thumb {background: rgb(87, 97, 97);}
+        fieldset::-webkit-scrollbar-thumb:hover {background: rgb(34, 39, 39);}
+        .post:hover{background-color:rgb(34, 39, 39);cursor: pointer;}
+        .post{font-size: large;background-color:rgb(58, 68, 68) ;color:white;}
+        .heart{font-size:x-large; margin:0;padding:0;}
+        .button{margin:0; padding: 0; background:white; border-style: none;}
+        .button:hover > span{color: grey;  transition: 0.5s; cursor:pointer;}
+        
      
-        
-        </style>      
-        
+ </style>   
+ <script src="Funkcii.js"></script>   
+</head>  
      
      <body>
          <div class="header">
@@ -48,6 +60,49 @@
          
          </div>
          <br>
+         <div style="background: rgb(58, 68, 68); padding-top: 3%; padding-bottom: 3%; text-align: center; margin: 6.8%;">
+              
+            <h1 style="color:rgb(233, 218, 218);">ГАЛЕРИЈА</h1>
+            <hr style="color: black;">
+            <img  class="imggallery"src="638eba8105a644d696abfa847a9be2b7.png" alt="slika1" id="pic1" onclick="PictureComment(this)">
+            <img  class="imggallery"src="papers.co-ne69-lake-louise-mount300.jpg" alt="slika2" id="pic2" onclick="PictureComment(this)">
+            <img  class="imggallery"src="slika1_300.jpg" alt="slika3" id="pic3" onclick="PictureComment(this)">
+            <img  class="imggallery"src="slika2_300.jpg" alt="slika4" id="pic4" onclick="PictureComment(this)">
+            <img  class="imggallery"src="slika3_300.jpg" alt="slika5" id="pic5" onclick="PictureComment(this)">
+            <img  class="imggallery"src="slika4_300.jpg" alt="slika6" id="pic6" onclick="PictureComment(this)">
+            
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            <div class="row">
+
+                <div class="column" style="margin: 0; padding:0;"id="leftcolumn">
+                    
+                    <img  style="float:right; max-width: 100%; max-height: 100%;" src="solid-color-image.png" alt="Fast Food">
+                      
+                          
+                </div>
+    
+    
+                <div class="column" style="margin: 0; padding:0;"id="rightcolumn">
+                
+                    <img  style="float:left; max-width: 100%; max-height: 100%;" src="solid-color-image.png" alt="Fast Food">
+                    
+                    
+                    
+                         
+                    </div>
+                
+                 
+                
+                
+             </div>
+         </div>
+
 
             
          <div class="footer"><p class="footertext">© 2021<p></div>
