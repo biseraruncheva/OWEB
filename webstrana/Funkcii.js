@@ -1,302 +1,223 @@
+//za dodavanje sliki
+var brpic=6;
+var novbrspic=localStorage.getItem("brpic");
+var prva=localStorage.getItem("prva");
+if(prva==null)
+{
+    var prva=localStorage.setItem("prva",1);
+}
+
+var brp;
+var p;
+
+if(novbrspic==null)
+{
+  novbrspic=6;
+  localStorage.setItem("brpic",novbrspic);
+}
+
+$(document).ready(function() {
+      if(localStorage.getItem("brpic")>6)
+      {
+        $("#sliki").append(localStorage.getItem("addedpic"));
+      }
+});
+
+$(document).ready(function() {
+  $("#addImage").click(function() {
+  $("#fileinput").click();
+  });
+  
+  $("#fileinput").change(function() {
+  if (this.files && this.files[0]) {
+    var reader = new FileReader();
+    reader.onload = imageIsLoaded;
+    reader.readAsDataURL(this.files[0]);
+  }
+  });
+  
+  function imageIsLoaded(e) {
+ 
+  brpic++;
+  brp=localStorage.getItem("brpic");
+  brp++;
+  localStorage.setItem("brpic",brp);
+  var al="slika"+localStorage.getItem("brpic");
+  var picID="pic"+localStorage.getItem("brpic");
+  
+  var picture="<img class='imggallery' src='"+e.target.result+"' alt='"+al+"' id='"+picID+"' onclick='PictureComment(this)' style='width:300px;height:300px;'>";
+  if(localStorage.getItem("prva")==1)//dali e prva dodadena slika
+  {
+    p=picture;
+    localStorage.setItem("prva", 0);
+  }
+  else
+  {
+      
+      p=localStorage.getItem("addedpic");
+      p+=picture;
+  }
+  $("#sliki").append(picture);
+  localStorage.setItem("addedpic", p);
+  
+  }
+  
+  });
+  
+  
+
 // Funkcija za like
-    var likes1 = 0;
-    var likes2 = 0;
-    var likes3 = 0;
-    var likes4 = 0;
-    var likes5 = 0;
-    var likes6 = 0;
-    var brojac1 = 1;
-    var brojac2 = 1;
-    var brojac3 = 1;
-    var brojac4 = 1;
-    var brojac5 = 1;
-    var brojac6 = 1;
-    
+    const likes=new Array(1000);
+    const brojac=new Array(1000);
+    var lajk;
+    var komentari;// ne treba za tuka
+    for(i=0; i<1000; i++)
+    {
+      
+      brojac[i]=1;
+      
+    }
     function LikesCounter(element) {
-      if(element.id=="button1")
-      { 
-        if(brojac1%2==0)
-        { 
-          brojac1++;
-          likes1=likes1- 1;
-          document.getElementById("likes1").innerHTML = likes1;
-          document.getElementById("heart1").style.color = 'black';
-          
-
-        }
-        else
-        { 
-          brojac1++;
-          likes1=likes1+ 1;
-          document.getElementById("likes1").innerHTML = likes1;
-          document.getElementById("heart1").style.color = 'red';
-        }
-       
-      }
       
-      if(element.id=="button2")
+
+      for(i=1; i<localStorage.getItem("brpic")+1; i++)
       {
-        if(brojac2%2==0)
-        { 
-          brojac2++;
-          likes2=likes2- 1;
-          document.getElementById("likes2").innerHTML = likes2;
-          document.getElementById("heart2").style.color = 'black';
+        var pom="button"+i;
+        if(element.id==pom)
+        {
           
+          var spanID="heart"+i;
+          var labelID="likes"+i;
+         
+          var lajk=localStorage.getItem("brlikes"+i);
+          if(lajk==null)
+          {
+              lajk=0;
+              localStorage.setItem("brlikes"+i,lajk);
+          }
 
-        }
-        else
-        { 
-          brojac2++;
-          likes2=likes2+ 1;
-          document.getElementById("likes2").innerHTML = likes2;
-          document.getElementById("heart2").style.color = 'red';
-        }
-      }
-      
-      if(element.id=="button3")
-      {
-        if(brojac3%2==0)
-        { 
-          brojac3++;
-          likes3=likes3- 1;
-          document.getElementById("likes3").innerHTML = likes3;
-          document.getElementById("heart3").style.color = 'black';
-          
-
-        }
-        else
-        { 
-          brojac3++;
-          likes3=likes3+ 1;
-          document.getElementById("likes3").innerHTML = likes3;
-          document.getElementById("heart3").style.color = 'red';
-        }
-      }
-      
-      if(element.id=="button4")
-      {
-        if(brojac4%2==0)
-        { 
-          brojac4++;
-          likes4=likes4- 1;
-          document.getElementById("likes4").innerHTML = likes4;
-          document.getElementById("heart4").style.color = 'black';
-          
-
-        }
-        else
-        { 
-          brojac4++;
-          likes4=likes4+ 1;
-          document.getElementById("likes4").innerHTML = likes4;
-          document.getElementById("heart4").style.color = 'red';
-        }
-      }
-      
-      if(element.id=="button5")
-      {
-        if(brojac5%2==0)
-        { 
-          brojac5++;
-          likes5=likes5- 1;
-          document.getElementById("likes5").innerHTML = likes5;
-          document.getElementById("heart5").style.color = 'black';
-          
-
-        }
-        else
-        { 
-          brojac5++;
-          likes5=likes5+ 1;
-          document.getElementById("likes5").innerHTML = likes5;
-          document.getElementById("heart5").style.color = 'red';
-        }
-        }
-      
-      
-      if(element.id=="button6")
-      {
-        if(brojac6%2==0)
-        { 
-          brojac6++;
-          likes6=likes6- 1;
-          document.getElementById("likes6").innerHTML = likes6;
-          document.getElementById("heart6").style.color = 'black';
-          
-
-        }
-        else
-        { 
-          brojac6++;
-          likes6=likes6+ 1;
-          document.getElementById("likes6").innerHTML = likes6;
-          document.getElementById("heart6").style.color = 'red';
+          if(((brojac[ i - 1 ])%2)==0)
+          { 
+            brojac[i-1]++;
+         
+            var lajk1=localStorage.getItem("brlikes"+i);
+            lajk1--;
+            localStorage.setItem("brlikes"+i, lajk1);
+            document.getElementById(labelID).innerHTML = localStorage.getItem("brlikes"+i);
+            document.getElementById(spanID).style.color = 'black';
+            
+  
+          }
+          else
+          { 
+            brojac[i-1]++;
+            
+            var lajk1=localStorage.getItem("brlikes"+i);
+            lajk1++;
+            localStorage.setItem("brlikes"+i, lajk1);
+            document.getElementById(labelID).innerHTML = localStorage.getItem("brlikes"+i);
+            document.getElementById(spanID).style.color = 'red';
+          }
+            
         }
       }
       
     };
-//
+
 
 //funkcija za pri klik na slika da se pojavi pogolema slika dole i del za komentiranje
 function PictureComment(element)
 {
-  
-    if(element.id == "pic1")
-    {
-    document.getElementById("leftcolumn").innerHTML = "<img  style='float:right; max-width: 100%; max-height: 100%;' src='FastFoodlargepicture.png' alt='slika1'>"
-    
-    content1=" <fieldset id='fieldset11' style='text-align:justify;width:87%; height: 460px; float:left; margin-left: 0; background-color: white; overflow-y: auto; '></fieldset>"
-    content2=" <button class='button' id='button1' onclick='LikesCounter(this)' ><span id='heart1'style='font-size:x-large; margin:0;padding:0;'>&#10084;</span></button>";
-    content3="<label id='likes1' style='color:black; font-size: x-large;'></label>";
-    content4= "<p style='text-align: justify; margin:0; padding: 0;'>"+content2+content3+"</p>";
-    content5="<textarea id='textarea1'style='background: white;resize: none;'name = 'comment'rows = '4' cols = '65' placeholder='Внесете коментар'></textarea><input class='post' type = 'button' value='Post' id='post1'onclick='Comments(this)'>"
-    content6="<p style='text-align: justify; margin:0; display: inline-flex;padding-right: 5%;'>"+content5+"</p>";
-    form="<form>"+content6+"</form>";
-    fieldset="<fieldset style='text-align: justify;width:87%; height: 100px; float:left; margin-left: 0; background-color: white;'>"+content4+form+"</fieldset>";
 
-    document.getElementById("rightcolumn").innerHTML =content1+fieldset;
-    }
-    else if(element.id == "pic2")
+    for(i=1; i<localStorage.getItem("brpic")+1; i++)
     {
-      document.getElementById("leftcolumn").innerHTML = "<img  style='float:right; max-width: 100%; max-height: 100%;' src='papers.co-ne69-lake-louise-mountain-lake-fantastic-nature-1-wallpaper600.jpg' alt='slika2'>"
-    
-    content1=" <fieldset id='fieldset12' style='text-align: justify;width:87%; height: 460px; float:left; margin-left: 0; background-color: white; overflow-y: auto; '></fieldset>"
-    content2=" <button class='button' id='button2' onclick='LikesCounter(this)' ><span id='heart2'style='font-size:x-large; margin:0;padding:0;'>&#10084;</span></button>";
-    content3="<label id='likes2' style='color:black; font-size: x-large;'></label>";
-    content4= "<p style='text-align: justify; margin:0; padding: 0;'>"+content2+content3+"</p>";
-    content5="<textarea id='textarea2'style='background: white;resize: none;'name = 'comment'rows = '4' cols = '65' placeholder='Внесете коментар'></textarea><input class='post' type = 'button' value='Post' id='post2'onclick='Comments(this)'>"
-    content6="<p style='text-align: justify; margin:0; display: inline-flex;padding-right: 5%;'>"+content5+"</p>";
-    form="<form>"+content6+"</form>";
-    fieldset="<fieldset style='text-align: justify;width:87%; height: 100px; float:left; margin-left: 0; background-color: white;'>"+content4+form+"</fieldset>";
+      pom="pic"+i
+      if(element.id==pom)
+      {
+        var picsrc=document.getElementById(pom).src;
+        var fieldID="fieldset1"+i;
+        var spanID="heart"+i;
+        var al="slika"+i;
+        var buttonID="button"+i;
+        var labelID="likes"+i;
+        var textareaID="textarea"+i;
+        var inputID="post"+i;
+        lajk=localStorage.getItem("brlikes"+i);
+        komentari=localStorage.getItem("brlikes"+i);
+        if(komentari==null)
+        {
+            komentari="<p style='color:grey'>Нема коментари</p>";
+            localStorage.setItem("komentar"+i, komentari);
+        }
+          if(lajk==null)
+          {
+              lajk=0;
+              localStorage.setItem("brlikes"+i,lajk);
+          }
 
-    document.getElementById("rightcolumn").innerHTML =content1+fieldset;
-    }
-
-    else if(element.id == "pic3")
-    {
-      document.getElementById("leftcolumn").innerHTML = "<img  style='float:right; max-width: 100%; max-height: 100%;' src='slika1_600.jpg' alt='slika3'>"
+        document.getElementById("leftcolumn").innerHTML = "<img  style='float:right; width:600px; height: 600px;' src='"+picsrc+"' alt='slika7'>"
     
-    content1=" <fieldset id='fieldset13' style='text-align: justify;width:87%; height: 460px; float:left; margin-left: 0; background-color: white; overflow-y: auto; '></fieldset>"
-    content2=" <button class='button' id='button3' onclick='LikesCounter(this)' ><span id='heart3'style='font-size:x-large; margin:0;padding:0;'>&#10084;</span></button>";
-    content3="<label id='likes3' style='color:black; font-size: x-large;'></label>";
-    content4= "<p style='text-align: justify; margin:0; padding: 0;'>"+content2+content3+"</p>";
-    content5="<textarea id='textarea3'style='background: white;resize: none;'name = 'comment'rows = '4' cols = '65' placeholder='Внесете коментар'></textarea><input class='post' type = 'button' value='Post' id='post3'onclick='Comments(this)'>"
-    content6="<p style='text-align: justify; margin:0; display: inline-flex;padding-right: 5%;'>"+content5+"</p>";
-    form="<form>"+content6+"</form>";
-    fieldset="<fieldset style='text-align: justify;width:87%; height: 100px; float:left; margin-left: 0; background-color: white;'>"+content4+form+"</fieldset>";
-
-    document.getElementById("rightcolumn").innerHTML =content1+fieldset;
-    }
-    else if(element.id == "pic4")
-    {
-      document.getElementById("leftcolumn").innerHTML = "<img  style='float:right; max-width: 100%; max-height: 100%;' src='slika2_600.jpg' alt='slika4'>"
+        content1=" <fieldset id='"+fieldID+"' style='text-align: justify;width:87%; height: 460px; float:left; margin-left: 0; background-color: white; overflow-y: auto; '>"+localStorage.getItem("komentar"+i)+"</fieldset>"
+        content2=" <button class='button'id='"+buttonID+"' onclick='LikesCounter(this)' ><span id='"+spanID+"' style='font-size:x-large; margin:0;padding:0;'>&#10084;</span></button>";
+        content3="<label id='"+labelID+"' style='color:black; font-size: x-large;'>"+localStorage.getItem("brlikes"+i)+"</label>";
+        content4= "<p style='text-align: justify; margin:0; padding: 0;'>"+content2+content3+"</p>";
+        content5="<textarea id='"+textareaID+"'style='background: white;resize: none;'name = 'comment'rows = '4' cols = '65' placeholder='Внесете коментар'></textarea><input class='post' type = 'button' value='Post' id='"+inputID+"'onclick='Comments(this)'>"
+        content6="<p style='text-align: justify; margin:0; display: inline-flex;padding-right: 5%;'>"+content5+"</p>";
+        form="<form>"+content6+"</form>";
+        fieldset="<fieldset style='text-align: justify;width:87%; height: 100px; float:left; margin-left: 0; background-color: white;'>"+content4+form+"</fieldset>";
     
-    content1=" <fieldset id='fieldset14' style='text-align: justify;width:87%; height: 460px; float:left; margin-left: 0; background-color: white; overflow-y: auto; '></fieldset>"
-    content2=" <button class='button'id='button4' onclick='LikesCounter(this)' ><span id='heart4'style='font-size:x-large; margin:0;padding:0;'>&#10084;</span></button>";
-    content3="<label id='likes4' style='color:black; font-size: x-large;'></label>";
-    content4= "<p style='text-align: justify; margin:0; padding: 0;'>"+content2+content3+"</p>";
-    content5="<textarea id='textarea4'style='background: white;resize: none;'name = 'comment'rows = '4' cols = '65' placeholder='Внесете коментар'></textarea><input class='post' type = 'button' value='Post' id='post4'onclick='Comments(this)'>"
-    content6="<p style='text-align: justify; margin:0; display: inline-flex;padding-right: 5%;'>"+content5+"</p>";
-    form="<form>"+content6+"</form>";
-    fieldset="<fieldset style='text-align: justify;width:87%; height: 100px; float:left; margin-left: 0; background-color: white;'>"+content4+form+"</fieldset>";
-
-    document.getElementById("rightcolumn").innerHTML =content1+fieldset;
-    }
-    else if(element.id == "pic5")
-    {
-      document.getElementById("leftcolumn").innerHTML = "<img  style='float:right; max-width: 100%; max-height: 100%;' src='slika3_600.jpg' alt='slika5'>"
-    
-      content1=" <fieldset id='fieldset15' style='text-align: justify;width:87%; height: 460px; float:left; margin-left: 0; background-color: white; overflow-y: auto; '></fieldset>"
-      content2=" <button class='button'id='button5' onclick='LikesCounter(this)' ><span id='heart5'style='font-size:x-large; margin:0;padding:0;'>&#10084;</span></button>";
-      content3="<label id='likes5' style='color:black; font-size: x-large;'></label>";
-      content4= "<p style='text-align: justify; margin:0; padding: 0;'>"+content2+content3+"</p>";
-      content5="<textarea id='textarea5'style='background: white;resize: none;'name = 'comment'rows = '4' cols = '65' placeholder='Внесете коментар'></textarea><input class='post' type = 'button' value='Post' id='post5'onclick='Comments(this)'>"
-      content6="<p style='text-align: justify; margin:0; display: inline-flex;padding-right: 5%;'>"+content5+"</p>";
-      form="<form>"+content6+"</form>";
-      fieldset="<fieldset style='text-align: justify;width:87%; height: 100px; float:left; margin-left: 0; background-color: white;'>"+content4+form+"</fieldset>";
-  
-      document.getElementById("rightcolumn").innerHTML =content1+fieldset;
-    }
-    else if(element.id == "pic6")
-    {
-      document.getElementById("leftcolumn").innerHTML = "<img  style='float:right; max-width: 100%; max-height: 100%;' src='slika4_600.jpg' alt='slika6'>"
-    
-      content1=" <fieldset id='fieldset16' style='text-align: justify;width:87%; height: 460px; float:left; margin-left: 0; background-color: white; overflow-y: auto; '></fieldset>"
-      content2=" <button class='button'id='button6' onclick='LikesCounter(this)' ><span id='heart6'style='font-size:x-large; margin:0;padding:0;'>&#10084;</span></button>";
-      content3="<label id='likes6' style='color:black; font-size: x-large;'></label>";
-      content4= "<p style='text-align: justify; margin:0; padding: 0;'>"+content2+content3+"</p>";
-      content5="<textarea id='textarea6'style='background: white;resize: none;'name = 'comment'rows = '4' cols = '65' placeholder='Внесете коментар'></textarea><input class='post' type = 'button' value='Post' id='post6'onclick='Comments(this)'>"
-      content6="<p style='text-align: justify; margin:0; display: inline-flex;padding-right: 5%;'>"+content5+"</p>";
-      form="<form>"+content6+"</form>";
-      fieldset="<fieldset style='text-align: justify;width:87%; height: 100px; float:left; margin-left: 0; background-color: white;'>"+content4+form+"</fieldset>";
-  
-      document.getElementById("rightcolumn").innerHTML =content1+fieldset;
+        document.getElementById("rightcolumn").innerHTML =content1+fieldset;
+      }
     }
 
 };
-//
+
 
 //funkcija za komentiranje
 
-var tekst1;
-var tekst2;
-var tekst3;
-var tekst4;
-var tekst5;
-var tekst6;
+
+const tekst=new Array(brpic);
+
+var user=Math.floor(Math.random() * 10001);
 function Comments(element)
 {
-  if(element.id=="post1")
+  const datum= new Date();
+    var godina=datum.getFullYear();
+    var mesec=datum.getMonth()+1;
+    var den=datum.getDate();
+    var denes=den+"."+mesec+"."+godina;
+
+  for(i=1; i<localStorage.getItem("brpic")+1; i++)
   {
+    var pom="post"+i;
+    if(element.id==pom)
+    {
+      var fieldID="fieldset1"+i;
+      var textareaID="textarea"+i;
+      var comment=document.getElementById(textareaID).value;
      
-       tekst1=tekst1+"<p style='color:black'>"+textarea1.value+"</p>"+"<hr>";
-       document.getElementById("fieldset11").innerHTML=tekst1;
+      var pom=localStorage.getItem("komentar"+i);
+      tekst[i-1]="<p style='color:black; white-space: initial; font-size:large'>"+"<strong>User"+user+": </strong>"+comment+"<br><br><strong>"+denes+"</strong></p><hr>";
+      if(pom=="<p style='color:grey'>Нема коментари</p>")//ako e prv komentar
+      {
+          localStorage.setItem("komentar"+i,tekst[i-1]);
+          localStorage.setItem("proverka"+i,0);//veke imame eden komentar 
+      }
+      else
+      {
+          var kom1=localStorage.getItem("komentar"+i);
+          kom1+=tekst[i-1];
+          localStorage.setItem("komentar"+i, kom1);
+      }
 
      
-  }
-  if(element.id=="post2")
-  {
-     
-       tekst2=tekst2+"<p style='color:black'>"+textarea2.value+"</p>"+"<hr>";
-       document.getElementById("fieldset12").innerHTML=tekst2;
+       document.getElementById(fieldID).innerHTML=localStorage.getItem("komentar"+i);
+       document.getElementById(textareaID).value="";
 
-     
-  }
-  if(element.id=="post3")
-  {
-     
-       tekst3=tekst3+"<p style='color:black'>"+textarea3.value+"</p>"+"<hr>";
-       document.getElementById("fieldset13").innerHTML=tekst3;
-
-     
-  }
-  if(element.id=="post4")
-  {
-     
-       tekst4=tekst4+"<p style='color:black'>"+textarea4.value+"</p>"+"<hr>";
-       document.getElementById("fieldset14").innerHTML=tekst4;
-
-     
-  }
-  if(element.id=="post5")
-  {
-     
-       tekst5=tekst5+"<p style='color:black'>"+textarea5.value+"</p>"+"<hr>";
-       document.getElementById("fieldset15").innerHTML=tekst5;
-
-     
-  }
-  if(element.id=="post6")
-  {
-     
-       tekst6=tekst6+"<p style='color:black'>"+textarea6.value+"</p>"+"<hr>";
-       document.getElementById("fieldset16").innerHTML=tekst6;
-
-     
+    }
   }
   
+  
 }
-
 
     

@@ -4,6 +4,7 @@
     <title>Омилени</title>
     <style type ="text/css">
         .linavigation {list-style-type:none; display: inline;}
+        .linavigation:hover{cursor: pointer;}
          .ulnavigation {background-color: rgb(58, 68, 68); margin: 0%; padding: 0%;position: absolute;width:100%;}
          li a {text-decoration: none;font-size:xx-large; color: rgb(233, 218, 218);padding-right: 1%;padding-left: 1%;}
          body {margin: 0; background:linear-gradient(to bottom right, rgba(133,245,106,1) 10%, rgba(86,184,180,1) 35%,  rgba(37,164,76,1) 100%);background-attachment: fixed;overflow-x: hidden}
@@ -26,7 +27,34 @@
         .imgslika{width:40%; float:left;border-top: 20px solid rgb(58, 68, 68);border-right: 20px solid rgb(58, 68, 68);border-bottom: 20px solid rgb(58, 68, 68);border-left: 20px solid rgb(58, 68, 68);}
         
         </style>      
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+        <script>
+            $(document).ready(function () {
+         $("#Fav").click(function(){
+            window.location.href="Favorite.html";
+             }); 
+             
+             $("#Home").click(function(){
+            window.location.href="Home.html";
+             });    
+ 
+             $("#Gallery").click(function(){
+            window.location.href="Gallery.html";
+             });    
+ 
+             $("#Survey").click(function(){
+            window.location.href="Survey.html";
+             });    
+ 
+             $("#Contact").click(function(){
+            window.location.href="Contact.html";
+             }); 
+             
+             $("#Blog").click(function(){
+            window.location.href="Blog.html";
+             }); 
+     });
+        </script>
      
      <body>
          <div class="header">
@@ -38,12 +66,12 @@
               <ul class="ulnavigation">
                       
                       
-                  <li class="linavigation"><a  style="float:left" href="Home.html">Почетна</a></li>
-                  <li class="linavigation"><a class="active" style="float:left" href="Favorite.html">Омилени</a></li>
-                  <li class="linavigation"><a style="float:left" href="Gallery.html">Галерија</a></li>
-                  <li class="linavigation"><a style="float:left" href="Blog.html">Блог</a></li>
-                  <li class="linavigation"><a style="float:right" href="Contact.html">Контакт</a></li>
-                  <li class="linavigation"><a style="float:right" href="Survey.html">Анкета</a></li>
+                  <li id="Home" class="linavigation"><a  style="float:left">Почетна</a></li>
+                  <li id="Fav" class="linavigation"><a class="active" style="float:left">Омилени</a></li>
+                  <li id="Gallery" class="linavigation"><a style="float:left">Галерија</a></li>
+                  <li id="Blog" class="linavigation"><a style="float:left">Блог</a></li>
+                  <li id="Contact" class="linavigation"><a style="float:right">Контакт</a></li>
+                  <li id="Survey" class="linavigation"><a style="float:right">Анкета</a></li>
               
              </ul>
          
@@ -69,14 +97,12 @@
               
                        
               
-              
-                  
-        </div>
+            </div>
              
              <div class="column">
                 
-             <img class="imgslika" src="638eba8105a644d696abfa847a9be2b7.png" alt="Fast Food">
-             <img class="imgslika" src="tiramisu-CCO-300x300.jpg" alt="Tiramisu">
+             <img  class="imgslika" src="638eba8105a644d696abfa847a9be2b7.png" alt="Fast Food">
+             <img  class="imgslika"  src="tiramisu-CCO-300x300.jpg" alt="Tiramisu">
              
                    
              </div>
@@ -84,8 +110,16 @@
             
          </div>
 
-         <br>
- 
+         <div class="row" style="background-color: rgb(58, 68, 68);" >
+             <div class="column" >
+                <iframe width="95%" height="495" src="https://www.youtube.com/embed/dT6C--QY8Qs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+             </div>
+             <div class="column">
+                <iframe width="95%" height="495" src="https://www.youtube.com/embed/1X_Lo2wXpSQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+             </div>
+            
+         </div>
+         
          <div class="row">
 
             <div class="column" style="background-color: rgb(58, 68, 68);">
@@ -100,29 +134,30 @@
                     
                             <p class="tekstpasus" style="line-height: 1cm;"> Омилени артисти ми се Eminem и Ed Sheeran. Нивниот стил на пишување и изразување на нивните чувства е тоа што ме направи редовен слушател на нивните песни. </p>
                   
-                           
-                  
-                  
-                      
-            </div>
-
-
-            <div class="column">
+                </div>
+             <div class="column">
                 
                 <img class="imgslika" src="8285304.jpeg" alt="Eminem">
                 <img class="imgslika" src="A-2184482-1624617975-1271.jpeg.jpg" alt="Ed Sheeran">
-                
-                      
-                </div>
+            </div>         
             
-             
-            
-            
-         </div>
-         <br>
-        
+        </div>
+         <div class="row" style="background-color: rgb(58, 68, 68);" >
+            <div class="column" >
+                <iframe src="https://open.spotify.com/embed/artist/7cYEt1pqMgXJdq00hAwVpT?utm_source=generator&theme=0" width="95%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </div>
+            <div class="column">
+                <iframe src="https://open.spotify.com/embed/artist/2cFrymmkijnjDg9SS92EPM?utm_source=generator&theme=0" width="95%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </div>
+           
+        </div>
 
-           <div class="footer"><p class="footertext">© 2021<p></div>
+         <br>
+         <br>
+         <br>
+
+
+           <div class="footer"><p class="footertext">© 2021 Bisera Runcheva<p></div>
             
     
     </body>

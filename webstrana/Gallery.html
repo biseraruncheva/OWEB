@@ -5,6 +5,7 @@
     <title>Галерија</title>
     <style type ="text/css">
         .linavigation {list-style-type:none; display: inline;}
+        .linavigation:hover{cursor: pointer;}
          .ulnavigation {background-color: rgb(58, 68, 68); margin: 0%; padding: 0%;position: absolute;width:100%;}
          li a {text-decoration: none;font-size:xx-large; color: rgb(233, 218, 218);padding-right: 1%;padding-left: 1%;}
          body {margin: 0; background:linear-gradient(to bottom right, rgba(133,245,106,1) 10%, rgba(86,184,180,1) 35%,  rgba(37,164,76,1) 100%);background-attachment: fixed;overflow-x: hidden}
@@ -36,7 +37,36 @@
         
      
  </style>   
- <script src="Funkcii.js"></script>   
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="Funkcii.js"></script> 
+        <script>
+            $(document).ready(function () {
+         $("#Fav").click(function(){
+            window.location.href="Favorite.html";
+             }); 
+             
+             $("#Home").click(function(){
+            window.location.href="Home.html";
+             });    
+ 
+             $("#Gallery").click(function(){
+            window.location.href="Gallery.html";
+             });    
+ 
+             $("#Survey").click(function(){
+            window.location.href="Survey.html";
+             });    
+ 
+             $("#Contact").click(function(){
+            window.location.href="Contact.html";
+             }); 
+             
+             $("#Blog").click(function(){
+            window.location.href="Blog.html";
+             }); 
+     });
+        </script>
+
 </head>  
      
      <body>
@@ -49,19 +79,19 @@
               <ul class="ulnavigation">
                       
                       
-                  <li class="linavigation"><a  style="float:left" href="Home.html">Почетна</a></li>
-                  <li class="linavigation"><a style="float:left" href="Favorite.html">Омилени</a></li>
-                  <li class="linavigation"><a class="active" style="float:left" href="Gallery.html">Галерија</a></li>
-                  <li class="linavigation"><a style="float:left" href="Blog.html">Блог</a></li>
-                  <li class="linavigation"><a style="float:right" href="Contact.html">Контакт</a></li>
-                  <li class="linavigation"><a style="float:right" href="Survey.html">Анкета</a></li>
+                  <li id="Home" class="linavigation"><a  style="float:left">Почетна</a></li>
+                  <li id="Fav" class="linavigation"><a style="float:left">Омилени</a></li>
+                  <li id="Gallery" class="linavigation"><a class="active" style="float:left">Галерија</a></li>
+                  <li id="Blog" class="linavigation"><a style="float:left">Блог</a></li>
+                  <li id="Contact" class="linavigation"><a style="float:right">Контакт</a></li>
+                  <li id="Survey" class="linavigation"><a style="float:right">Анкета</a></li>
               
              </ul>
          
          </div>
          <br>
-         <div style="background: rgb(58, 68, 68); padding-top: 3%; padding-bottom: 3%; text-align: center; margin: 6.8%;">
-              
+         <div  style="background: rgb(58, 68, 68); padding-top: 3%; padding-bottom: 3%; text-align: center; margin: 6.8%;">
+              <div id="sliki" style="background: rgb(58, 68, 68); padding-top: 3%; padding-bottom: 3%; text-align: center; margin: 6.8%;">
             <h1 style="color:rgb(233, 218, 218);">ГАЛЕРИЈА</h1>
             <hr style="color: black;">
             <img  class="imggallery"src="638eba8105a644d696abfa847a9be2b7.png" alt="slika1" id="pic1" onclick="PictureComment(this)">
@@ -70,14 +100,18 @@
             <img  class="imggallery"src="slika2_300.jpg" alt="slika4" id="pic4" onclick="PictureComment(this)">
             <img  class="imggallery"src="slika3_300.jpg" alt="slika5" id="pic5" onclick="PictureComment(this)">
             <img  class="imggallery"src="slika4_300.jpg" alt="slika6" id="pic6" onclick="PictureComment(this)">
+        </div>
             
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            
+           
+            <div style="padding-top: 3%; padding-bottom: 3%; text-align: center; margin: 6.8%;">
+                <p>
+                <input type="file" id="fileinput" style= "height:0;overflow:hidden;">
+                <br>
+                <button id="addImage" style="text-align: center; font-size: x-large;" class="imggallery">Upload image</button>
+            </p>
+           
+                
+            </div>
             <div class="row">
 
                 <div class="column" style="margin: 0; padding:0;"id="leftcolumn">
@@ -105,6 +139,6 @@
 
 
             
-         <div class="footer"><p class="footertext">© 2021<p></div>
+         <div class="footer"><p class="footertext">© 2021 Bisera Runcheva<p></div>
     </body>
 </html>

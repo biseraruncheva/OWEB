@@ -4,6 +4,7 @@
     <title>Блог</title>
     <style type ="text/css">
         .linavigation {list-style-type:none; display: inline;}
+        .linavigation {cursor:pointer;}
          .ulnavigation {background-color: rgb(58, 68, 68); margin: 0%; padding: 0%;position: absolute;width:100%;}
          li a {text-decoration: none;font-size:xx-large; color: rgb(233, 218, 218);padding-right: 1%;padding-left: 1%;}
          body {margin: 0; background:linear-gradient(to bottom right, rgba(133,245,106,1) 10%, rgba(86,184,180,1) 35%,  rgba(37,164,76,1) 100%);background-attachment: fixed;overflow-x: hidden}
@@ -12,20 +13,47 @@
          .header{text-align: center; padding:1%; width:100%;}
          .footer{background-color:rgb(58, 68, 68); text-align: center; padding:1%; width:100%;color: rgb(233, 218, 218);}
          .text {text-align:center; padding:3%;}
-         fieldset{background-color: white; border-style:inline;border-radius: 10%; border-color: tomato; width: 80%;  height:500px}
-        .fieldsetpasus{background-color: rgb(58, 68, 68); border-top: rgb(87, 97, 97) solid; border-left: rgb(87, 97, 97) solid;border-right: rgb(87, 97, 97) solid;border-bottom: rgb(87, 97, 97) solid; width: 50%; margin:auto;}
+         .fieldset{background-color: white; border-style:inline;border-radius: 10%; border-color: tomato; width: 80%;  height:500px}
+        .fieldsetpasus{background-color: rgb(58, 68, 68); border-top: rgb(87, 97, 97) solid; border-left: rgb(87, 97, 97) solid;border-right: rgb(87, 97, 97) solid;border-bottom: rgb(87, 97, 97) solid; width: 40%; margin:auto;}
          .tekstanketa {text-align: justify;font-size:larger;}
         .tekstpasus{text-align: justify;font-size:larger;color: rgb(255, 255, 255);}
         .submitbutton {text-align:center;}
         .column { float: left;  width: 33.3%;color:white; text-align: center;}
         .row:after { content: ""; display: table; clear: both;}
         .footertext{font-size: small;}
-        img {width: 100%;display:block;margin:0; padding:0; border-radius: 5% 5% 0% 0%;}
+        .img {width: 100%;display:block;margin:0; padding:0; border-radius: 5% 5% 0% 0%;}
      
         
         </style>      
-        <script src="blogfunkcija.js"></script>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="blogfunkcija.js"></script>  
+        <script>
+            $(document).ready(function () {
+         $("#Fav").click(function(){
+            window.location.href="Favorite.html";
+             }); 
+             
+             $("#Home").click(function(){
+            window.location.href="Home.html";
+             });    
+ 
+             $("#Gallery").click(function(){
+            window.location.href="Gallery.html";
+             });    
+ 
+             $("#Survey").click(function(){
+            window.location.href="Survey.html";
+             });    
+ 
+             $("#Contact").click(function(){
+            window.location.href="Contact.html";
+             }); 
+             
+             $("#Blog").click(function(){
+            window.location.href="Blog.html";
+             }); 
+     });
+        </script>
      
      <body>
          <div class="header">
@@ -37,27 +65,52 @@
               <ul class="ulnavigation">
                       
                       
-                  <li class="linavigation"><a style="float:left" href="Home.html">Почетна</a></li>
-                  <li class="linavigation"><a style="float:left" href="Favorite.html">Омилени</a></li>
-                  <li class="linavigation"><a style="float:left" href="Gallery.html">Галерија</a></li>
-                  <li class="linavigation"><a class="active" style="float:left" href="Blog.html">Блог</a></li>
-                  <li class="linavigation"><a style="float:right" href="Contact.html">Контакт</a></li>
-                  <li class="linavigation"><a style="float:right" href="Survey.html">Анкета</a></li>
+                  <li id="Home" class="linavigation"><a style="float:left">Почетна</a></li>
+                  <li id="Fav" class="linavigation"><a style="float:left">Омилени</a></li>
+                  <li id="Gallery" class="linavigation"><a style="float:left">Галерија</a></li>
+                  <li id="Blog" class="linavigation"><a class="active" style="float:left">Блог</a></li>
+                  <li id="Contact" class="linavigation"><a style="float:right">Контакт</a></li>
+                  <li id="Survey" class="linavigation"><a style="float:right">Анкета</a></li>
               
              </ul>
          
          </div>
          <br>
         
-        <div style="background: rgb(58, 68, 68); padding-top: 3%; padding-bottom: 3%; text-align: center; margin-left: 6.8%; margin-right: 6.8%; margin-top: 3%; margin-bottom: 3%;">
-         <div class="row">
+
+        <div id="here" style="background: rgb(58, 68, 68); padding-top: 3%; padding-bottom: 3%; text-align: center; margin-left: 6.8%; margin-right: 6.8%; margin-top: 3%; margin-bottom: 3%;">
+         
+            <div style="text-align: center;">
+                <h1 style="color:rgb(233, 218, 218);">WRITE YOUR OWN BLOG BELOW:</h1>
+                <fieldset style="width: fit-content;  margin: auto; border-radius: 5% 5% 5% ">
+               
+                <p style="font-size: larger; text-align: justify; color:rgb(233, 218, 218);">Име:</p>
+                <input id="ime" style="font-size: larger; text-align: justify;" type="text" size="40" maxlength="30" required>
+                <br>
+                <p style="font-size: larger; text-align: justify; color:rgb(233, 218, 218);">Наслов:</p>
+                <input id="naslov" style="font-size: larger; text-align: justify;" type="text" size="40" maxlength="30" required>
+                <br>
+                <p style="font-size: larger; text-align: justify; color:rgb(233, 218, 218);">Текст:</p>
+                <textarea id="tekst" style="font-size: larger; text-align: justify; resize: none;" placeholder="text here" rows="6" cols="47" required></textarea>
+                <p style="font-size: larger; text-align: justify; color:rgb(233, 218, 218);">
+                    <input type="file" id="fileinput" style="height: 0; overflow:hidden">
+                    <br>
+                    <br>
+                    <button id="addImage" style="text-align: center; font-size: x-large; ">Upload Blog</button>
+                </p>          
+           
+        </fieldset>
+            </div>
+         
+         
             <h1 style="color:rgb(233, 218, 218);text-align: center;">БЛОГ</h1>
             <hr>
             <br>
+            <div class="row">
             
              <div class="column">
                 <article style="margin:5%;border-radius: 5% 5% 5%;background-color: white;">
-                    <img  id="slika1" onclick="appear(this)" src="images_unsplash_com-photo-1432821596592-e2c18b78144f.jpg" alt="slika1">
+                    <img  class="img" id="slika1" onclick="appear(this)" src="images_unsplash_com-photo-1432821596592-e2c18b78144f.jpg" alt="slika1">
                     <div>
                         <h1 style="color:black; text-align: justify;margin:3%">Совети за продуктивност</h1>
                     </div>
@@ -75,7 +128,7 @@
 
              <div class="column">
                 <article style="margin:5%;border-radius: 5% 5% 5%;background-color: white;">
-                    <img  id="slika2" onclick="appear(this)" src="traveling-wanderlust-tumblr-Favi.jpg" alt="slika1">
+                    <img  class="img" id="slika2" onclick="appear(this)" src="traveling-wanderlust-tumblr-Favi.jpg" alt="slika1">
                     <div>
                         <h1 style="color:black; text-align: justify;margin:3%">Патување</h1>
                     </div>
@@ -94,7 +147,7 @@
              
              <div class="column">
                 <article style="margin:5%;border-radius: 5% 5% 5%;background-color: white;">
-                    <img  id="slika3" onclick="appear(this)" src="vintage-cassette.png" alt="slika1">
+                    <img  class="img" id="slika3" onclick="appear(this)" src="vintage-cassette.png" alt="slika1">
                     <div>
                         <h1 style="color:black; text-align: justify;margin:3%">АМАs</h1>
                     </div>
@@ -118,7 +171,7 @@
             
              <div class="column" style="margin-top: -7%;">
                 <article style="margin:5%;border-radius: 5% 5% 5%;background-color: white;">
-                    <img  id="slika4" onclick="appear(this)" src="bff830a837ce4f8787e95a28c8f4f785.jpg" alt="slika1">
+                    <img class="img" id="slika4" onclick="appear(this)" src="bff830a837ce4f8787e95a28c8f4f785.jpg" alt="slika1">
                     <div>
                         <h1 style="color:black; text-align: justify;margin:3%">Унгарски Парламент</h1>
                     </div>
@@ -136,7 +189,7 @@
 
              <div class="column">
                 <article style="margin:5%;border-radius: 5% 5% 5%;background-color: white;">
-                    <img  id="slika5" onclick="appear(this)" src="sl_digi_012119053_0-2000 (1).jpg" alt="slika1">
+                    <img class="img" id="slika5" onclick="appear(this)" src="sl_digi_012119053_0-2000 (1).jpg" alt="slika1">
                     <div>
                         <h1 style="color:black; text-align: justify;margin:3%">Чоколаден милкшејк</h1>
                     </div>
@@ -154,7 +207,7 @@
 
              <div class="column" style="margin-top: -7%;">
                 <article style="margin:5%;border-radius: 5% 5% 5%;background-color: white;">
-                    <img  id="slika6" onclick="appear(this)" src="93080_3x4 (1).jpg" alt="slika1">
+                    <img class="img" id="slika6" onclick="appear(this)" src="93080_3x4 (1).jpg" alt="slika1">
                     <div>
                         <h1 style="color:black; text-align: justify;margin:3%">Tаџ Махал</h1>
                     </div>
@@ -171,12 +224,14 @@
              </div>
     
          </div>
+
+         
         </div>
         
 
 
 
-            <div class="footer"><p class="footertext">© 2021<p></div>
+            <div class="footer"><p class="footertext">© 2021 Bisera Runcheva<p></div>
     
     </body>
 </html>
